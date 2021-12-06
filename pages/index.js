@@ -5,6 +5,7 @@ import matter from 'gray-matter'
 import Layout from "../components/Layout"
 import Link from 'next/link'
 import Post from '../components/post'
+import { sortByDate } from '../utils'
 
 export default function HomePage({posts}) {
  
@@ -48,6 +49,9 @@ return{
 
   return{
 
-    props:{posts},
+    props:
+    {
+     posts: posts.sort(sortByDate).slice(0,6),
+    },
   }
 }
